@@ -1,7 +1,7 @@
 <template>
   <div class="allView">
-    <player></player>
-    <playList></playList>
+    <player :artist="artist"></player>
+    <playList @artist="oneArtist"></playList>
   </div>
 </template>
 
@@ -16,9 +16,16 @@ export default {
     playList
   },
 
-  data: () => ({
-    //
-  })
+  data() {
+    return {
+      artist: {}
+    };
+  },
+  methods: {
+    oneArtist(val) {
+      this.artist = val;
+    }
+  }
 };
 </script>
 
@@ -27,7 +34,7 @@ export default {
   margin: 0 auto;
   width: 80%;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 50% 50%;
   background-image: url("./assets/free psd(1).png");
   background-size: cover;
 }
